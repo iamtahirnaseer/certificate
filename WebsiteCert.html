@@ -1,0 +1,1473 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BGSBU Certificate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.form-section {
+  width: 350px;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  color: white;
+}
+
+.form-section h3 {
+  margin-bottom: 15px;
+  color: #0d4c97;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+}
+
+.form-section button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  background: #0d4c97;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.certificate-section {
+  flex: 1;
+}
+
+.frame {
+  background: #1c1c1c;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.certificate {
+  width: 1200px;
+  height: 765px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 20px solid;
+  border-image: linear-gradient(45deg, #0d4c97, #1976d2, #1565c0, #0d4c97) 1;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 60px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.certificate::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 4px solid;
+  border-image: linear-gradient(135deg, #1976d2, #0d4c97, #1565c0, #1976d2) 1;
+  pointer-events: none;
+  box-shadow: inset 0 0 15px rgba(13, 76, 151, 0.15);
+}
+
+.certificate::after {
+  content: "";
+  position: absolute;
+  inset: 25px;
+  border: 2px dashed rgba(13, 76, 151, 0.3);
+  pointer-events: none;
+}
+
+.corner-ornament {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.corner-ornament::before,
+.corner-ornament::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(45deg, #0d4c97, #1976d2);
+}
+
+.corner-ornament.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.corner-ornament.top-left::before {
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 4px;
+}
+
+.corner-ornament.top-left::after {
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 40px;
+}
+
+.corner-ornament.top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.corner-ornament.top-right::before {
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 4px;
+}
+
+.corner-ornament.top-right::after {
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 40px;
+}
+
+.corner-ornament.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.corner-ornament.bottom-left::before {
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 4px;
+}
+
+.corner-ornament.bottom-left::after {
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  height: 40px;
+}
+
+.corner-ornament.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.corner-ornament.bottom-right::before {
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 4px;
+}
+
+.corner-ornament.bottom-right::after {
+  bottom: 0;
+  right: 0;
+  width: 4px;
+  height: 40px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.university-logo {
+  position: absolute !important;
+  left: -30px !important;
+  top: -10px !important;
+  transform: none !important;
+  width: 100px;
+  height: 120px;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.logo-box img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #123;
+  line-height: 1.4;
+}
+
+.edtech {
+  font-size: 30px;
+  font-weight: bold;
+  color: #222;
+}
+
+.university-header {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #0d4c97;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.06;
+  width: 500px;
+  z-index: 0;
+}
+
+.title {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.title h1 {
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+  font-weight: bold;
+  display: inline;
+}
+
+.title h2 {
+  font-size: 30px;
+  color: #1a1a1a;
+  margin-left: 8px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: inline;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #555;
+  position: relative;
+  z-index: 2;
+  font-style: italic;
+}
+
+.student-name {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 40px;
+  color: #0d4c97;
+  font-family: 'Libre Baskerville', 'Playfair Display', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.content {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #111;
+}
+
+.certificate-id {
+  position: absolute;
+  left: -110px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #222;
+  white-space: nowrap;
+  transform-origin: center;
+}
+
+.issue-date {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #222;
+  white-space: nowrap;
+  transform-origin: center;
+}
+
+.signatures {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  z-index: 2;
+}
+
+.sign-box {
+  width: 28%;
+}
+
+.line {
+  border-top: 2px solid #999;
+  margin-bottom: 12px;
+}
+
+.sign-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+  line-height: 1.3;
+}
+
+.print-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #0d4c97;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.templates-section {
+  width: 350px;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  color: white;
+  margin-top: 20px;
+}
+
+.templates-section h3 {
+  margin-bottom: 15px;
+  color: #0d4c97;
+  text-align: center;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.template-card {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.template-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.template-preview {
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.template-preview h4 {
+  margin: 0;
+  font-size: 9px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+.template-preview p {
+  margin: 2px 0 0 0;
+  font-size: 7px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.2;
+}
+
+.appreciation-preview { background: linear-gradient(135deg, #0d4c97, #1976d2); }
+.completion-preview { background: linear-gradient(135deg, #1565c0, #0d4c97); }
+.excellence-preview { background: linear-gradient(135deg, #1976d2, #2196f3); }
+.participation-preview { background: linear-gradient(135deg, #2196f3, #42a5f5); }
+.achievement-preview { background: linear-gradient(135deg, #1e88e5, #0d4c97); }
+.merit-preview { background: linear-gradient(135deg, #42a5f5, #1976d2); }
+.leadership-preview { background: linear-gradient(135deg, #0d47a1, #1565c0); }
+.innovation-preview { background: linear-gradient(135deg, #1976d2, #1e88e5); }
+.recognition-preview { background: linear-gradient(135deg, #1565c0, #42a5f5); }
+
+.template-card.selected {
+  border-color: #1976d2;
+  background: #0d4c97;
+  box-shadow: 0 0 15px rgba(13, 76, 151, 0.5);
+}
+
+.edit-mode-section {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(13, 76, 151, 0.1);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.edit-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.edit-mode-text {
+  margin-right: 10px;
+  color: #dc2626;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.edit-toggle-switch {
+  flex-shrink: 0;
+}
+
+.edit-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.edit-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-label {
+  color: #dc2626;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.toggle-slider {
+  width: 40px;
+  height: 20px;
+  background: white;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid #d1d5db;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #16a34a;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s ease;
+  border: 1px solid #15803d;
+}
+
+.edit-toggle input[type="checkbox"]:checked + .toggle-slider {
+  background: white;
+  border-color: #d1d5db;
+}
+
+.edit-toggle input[type="checkbox"]:checked + .toggle-slider::before {
+  transform: translateX(20px);
+  background: #dc2626;
+  border-color: #991b1b;
+}
+
+.edit-info {
+  margin: 5px 0 0 0;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.editable-content {
+  outline: 2px dashed #0d4c97;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.editable-content:hover {
+  background: rgba(13, 76, 151, 0.05);
+}
+
+.editable-content:focus {
+  outline: 2px solid #0d4c97;
+  background: rgba(13, 76, 151, 0.1);
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+.bubble:nth-child(1) { width: 360px; height: 360px; left: -12%; top: 5%; background: rgba(13, 76, 151, 0.08); }
+.bubble:nth-child(2) { width: 380px; height: 380px; left: 85%; top: 2%; background: rgba(25, 118, 210, 0.06); animation-delay: 1s; }
+.bubble:nth-child(3) { width: 320px; height: 320px; left: -10%; top: 70%; background: rgba(21, 101, 192, 0.07); animation-delay: 2s; }
+.bubble:nth-child(4) { width: 370px; height: 370px; left: 88%; top: 75%; background: rgba(13, 76, 151, 0.05); animation-delay: 3s; }
+.bubble:nth-child(5) { width: 340px; height: 340px; left: 25%; top: -15%; background: rgba(25, 118, 210, 0.08); animation-delay: 4s; }
+.bubble:nth-child(6) { width: 390px; height: 390px; left: 65%; top: 85%; background: rgba(21, 101, 192, 0.06); animation-delay: 5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+
+.device-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+
+.device-message.hidden {
+  display: none !important;
+}
+
+.message-container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 3px solid #0d4c97;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.message-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.mobile-icon { color: #dc2626; }
+.laptop-icon { color: #16a34a; }
+.warning-icon { color: #f59e0b; }
+
+.message-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0d4c97;
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+.message-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+}
+
+.screen-info {
+  background: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid #0d4c97;
+}
+
+.screen-ratio {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0d4c97;
+  margin-bottom: 5px;
+}
+
+.zoom-instruction {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.proceed-btn {
+  background: #0d4c97;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.proceed-btn:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 76, 151, 0.3);
+}
+
+.device-message.hidden {
+  display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  body {
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+    margin: 0;
+  }
+  
+  .container {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: block !important;
+    text-align: center;
+    color: white;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .mobile-icon {
+    font-size: 48px;
+    color: #dc2626;
+    margin-bottom: 15px;
+    line-height: 1;
+  }
+  
+  .mobile-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0d4c97;
+    margin-bottom: 12px;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+  }
+  
+  .mobile-text {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .mobile-note {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+    line-height: 1.4;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .mobile-only {
+    padding: 15px;
+    max-width: 320px;
+  }
+  
+  .mobile-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  
+  .mobile-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .mobile-text {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  
+  .mobile-note {
+    font-size: 11px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+  body {
+    padding: 8px;
+  }
+  
+  .mobile-only {
+    padding: 12px;
+    max-width: 300px;
+  }
+  
+  .mobile-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .mobile-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .mobile-text {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .mobile-note {
+    font-size: 10px;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+
+  .print-btn {
+    display: none;
+  }
+
+  .frame {
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .device-message {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Mobile Only Content -->
+  <div class="mobile-only" style="display: none;">
+    <div class="mobile-icon"> Smartphones aren't supported for certificate generation</div>
+    <h1 class="mobile-title">Please Use a Laptop/Desktop</h1>
+    <p class="mobile-text">
+      This BGSBU Certificate Generator requires a larger screen for proper formatting and design. 
+      Please open this website on a laptop or desktop computer to generate your professional certificate.
+    </p>
+    <p class="mobile-note">
+      Certificate generation is optimized for desktop browsers only.
+    </p>
+  </div>
+
+  <!-- Device Detection Message -->
+  <div id="deviceMessage" class="device-message">
+    <div class="message-container">
+      <div id="messageIcon" class="message-icon"></div>
+      <h2 id="messageTitle" class="message-title"></h2>
+      <p id="messageText" class="message-text"></p>
+      <div id="screenInfo" class="screen-info" style="display: none;">
+        <div id="screenRatio" class="screen-ratio"></div>
+        <div id="zoomInstruction" class="zoom-instruction"></div>
+      </div>
+      <button class="proceed-btn" onclick="closeDeviceMessage()">I Understand</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="form-section">
+      <h3>Certificate Details</h3>
+      <label for="studentNameInput">Student Name:</label>
+      <input type="text" id="studentNameInput" value="Tahir Naseer">
+
+      <label for="issueDateInput">Issue Date:</label>
+      <input type="date" id="issueDateInput" value="2026-04-28">
+
+      <label for="certIdInput">Certificate ID:</label>
+      <input type="text" id="certIdInput" readonly>
+
+
+      <button onclick="updateCertificate()">Update Certificate</button>
+      <button onclick="downloadPNG()">Download as PNG</button>
+      
+      <!-- Certificate Templates Section -->
+      <h3 style="color: #0d4c97; margin-top: 20px; margin-bottom: 10px; text-align: center;">Certificate Templates</h3>
+      <div class="template-grid">
+        <div class="template-card" onclick="selectTemplate('appreciation')">
+          <div class="template-preview appreciation-preview">
+            <h4>Appreciation</h4>
+            <p>Certificate of Appreciation</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('completion')">
+          <div class="template-preview completion-preview">
+            <h4>Completion</h4>
+            <p>Certificate of Completion</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('excellence')">
+          <div class="template-preview excellence-preview">
+            <h4>Excellence</h4>
+            <p>Certificate of Excellence</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('participation')">
+          <div class="template-preview participation-preview">
+            <h4>Participation</h4>
+            <p>Certificate of Participation</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('achievement')">
+          <div class="template-preview achievement-preview">
+            <h4>Achievement</h4>
+            <p>Certificate of Achievement</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('merit')">
+          <div class="template-preview merit-preview">
+            <h4>Merit</h4>
+            <p>Certificate of Merit</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('leadership')">
+          <div class="template-preview leadership-preview">
+            <h4>Leadership</h4>
+            <p>Certificate of Leadership</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('innovation')">
+          <div class="template-preview innovation-preview">
+            <h4>Innovation</h4>
+            <p>Certificate of Innovation</p>
+          </div>
+        </div>
+        <div class="template-card" onclick="selectTemplate('recognition')">
+          <div class="template-preview recognition-preview">
+            <h4>Recognition</h4>
+            <p>Certificate of Recognition</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Edit Mode Toggle -->
+      <div class="edit-mode-section">
+        <div class="edit-toggle-container">
+          <div class="edit-mode-text">
+            <span class="toggle-label">Edit Mode</span>
+          </div>
+          <div class="edit-toggle-switch">
+            <label class="edit-toggle">
+              <input type="checkbox" id="editModeToggle" onchange="toggleEditMode()">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        <p class="edit-info">Enable to edit certificate content directly</p>
+      </div>
+    </div>
+
+    <div class="certificate-section">
+      <div class="frame">
+        <div class="certificate">
+    <div class="corner-ornament top-left"></div>
+    <div class="corner-ornament top-right"></div>
+    <div class="corner-ornament bottom-left"></div>
+    <div class="corner-ornament bottom-right"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <!-- Side Text -->
+    <div class="certificate-id">CERTIFICATE ID : BGSBU-2026-001</div>
+    <div class="issue-date">ISSUE DATE : 28 APRIL 2026</div>
+
+    <!-- University Header -->
+    <div class="university-header">
+      <img src="./bgsbu.png" class="university-logo" alt="University Logo">
+      <div>
+        Baba Ghulam Shah Badshah University
+        <div style="font-size: 20px; font-weight: normal; letter-spacing: 1px; margin-top: 5px;">
+          Rajouri, Jammu & Kashmir
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Logos -->
+    <div class="top-section">
+      <div style="flex: 1;"></div>
+    </div>
+
+    <!-- Main Title -->
+    <div class="title">
+      <h1>CERTIFICATE</h1>
+      <h2>OF APPRECIATION</h2>
+    </div>
+
+    <!-- Subtitle -->
+    <div class="subtitle">
+      THIS IS TO CERTIFY THAT
+    </div>
+
+    <!-- Student Name -->
+    <div class="student-name" id="studentName">
+      Tahir Naseer
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      has made significant voluntary contributions to the
+      <span class="highlight">University Website Development Initiative</span>
+      at <span class="highlight">Baba Ghulam Shah Badshah University</span>.<br><br>
+      The individual demonstrated outstanding commitment, innovation, collaborative spirit,
+      and technical expertise throughout the engagement period.
+    </div>
+
+    <!-- Signatures -->
+    <div class="signatures">
+
+      <div class="sign-box">
+        <div class="line"></div>
+        <div class="sign-title">
+          PROJECT MENTOR
+        </div>
+      </div>
+
+      <div class="sign-box">
+        <div class="line"></div>
+        <div class="sign-title">
+          HEAD OF DEPARTMENT
+        </div>
+      </div>
+
+      <div class="sign-box">
+        <div class="line"></div>
+        <div class="sign-title">
+          UNIVERSITY AUTHORITY
+        </div>
+      </div>
+
+    </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    // ==========================
+    // CHANGE NAME DYNAMICALLY
+    // ==========================
+
+    function generateCertId() {
+      const randomNum = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      return `BGSBU-2026-${randomNum}`;
+    }
+
+    function updateCertificate() {
+      const studentName = document.getElementById('studentNameInput').value;
+      const issueDate = document.getElementById('issueDateInput').value;
+      const certId = generateCertId();
+
+      // Update student name
+      document.getElementById('studentName').innerText = studentName;
+      
+      // Update issue date dynamically
+      const formattedDate = new Date(issueDate).toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).toUpperCase();
+      document.querySelector('.issue-date').innerText = `ISSUE DATE : ${formattedDate}`;
+      
+      // Update certificate ID dynamically
+      document.querySelector('.certificate-id').innerText = `CERTIFICATE ID : ${certId}`;
+      
+      // Update the input field with new certificate ID
+      document.getElementById('certIdInput').value = certId;
+    }
+
+    // Device Detection and Screen Check
+    function detectDeviceAndScreen() {
+      // Check if user has already seen the message in current session
+      const messageSeen = sessionStorage.getItem('deviceMessageSeen');
+      if (messageSeen === 'true') {
+        return; // Don't show message if user has already seen it in this session
+      }
+      
+      const userAgent = navigator.userAgent.toLowerCase();
+      const screenWidth = window.screen.width;
+      const screenHeight = window.screen.height;
+      const screenRatio = (screenWidth / screenHeight * 100).toFixed(1);
+      
+      // Check if mobile device
+      const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent) || screenWidth < 768;
+      
+      const messageIcon = document.getElementById('messageIcon');
+      const messageTitle = document.getElementById('messageTitle');
+      const messageText = document.getElementById('messageText');
+      const screenInfo = document.getElementById('screenInfo');
+      const screenRatioElement = document.getElementById('screenRatio');
+      const zoomInstruction = document.getElementById('zoomInstruction');
+      
+      if (isMobile) {
+        // Mobile device message
+        messageIcon.innerHTML = ' Smartphones aren\'t supported for certificate generation';
+        messageIcon.className = 'message-icon mobile-icon';
+        messageTitle.textContent = 'Please Use a Laptop/Desktop';
+        messageText.textContent = 'This certificate generator requires a larger screen for proper formatting. Please open this website on a laptop or desktop computer to generate your certificate.';
+        screenInfo.style.display = 'none';
+      } else {
+        // Laptop/desktop message
+        messageIcon.innerHTML = ' Laptop detected!';
+        messageIcon.className = 'message-icon laptop-icon';
+        messageTitle.textContent = 'Welcome to BGSBU Certificate Generator';
+        messageText.textContent = 'I know you\'re on a laptop! Please set your browser zoom to 67% for proper certificate formatting.';
+        screenInfo.style.display = 'block';
+        screenRatioElement.innerHTML = '';
+        
+        // Check if screen ratio is appropriate (around 67% is ideal)
+        if (screenRatio < 60 || screenRatio > 75) {
+          zoomInstruction.innerHTML = `<strong style="color: #dc2626;">Important:</strong> Please set your browser zoom to 67% for proper certificate formatting. Otherwise, your certificate may not generate correctly.`;
+          zoomInstruction.style.color = '#dc2626';
+        } else {
+          zoomInstruction.innerHTML = '<strong style="color: #16a34a;">Perfect!</strong> Your screen settings are optimal for certificate generation.';
+          zoomInstruction.style.color = '#16a34a';
+        }
+      }
+      
+      // Show the message
+      const messageElement = document.getElementById('deviceMessage');
+      messageElement.classList.remove('hidden');
+      messageElement.style.display = 'flex';
+    }
+    
+    function closeDeviceMessage() {
+      const messageElement = document.getElementById('deviceMessage');
+      messageElement.classList.add('hidden');
+      messageElement.style.display = 'none';
+      // Save that user has seen the message for current session only
+      sessionStorage.setItem('deviceMessageSeen', 'true');
+    }
+    
+    function checkZoomLevel() {
+      const zoomLevel = Math.round(window.devicePixelRatio * 100);
+      const idealZoom = 67;
+      
+      if (Math.abs(zoomLevel - idealZoom) > 5) {
+        // Show zoom warning if significantly different from 67%
+        console.log(`Current zoom: ${zoomLevel}%, Recommended: ${idealZoom}%`);
+      }
+    }
+
+    // Auto-update certificate when inputs change
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize
+      document.getElementById('certIdInput').value = generateCertId();
+      updateCertificate();
+      
+      // Add event listeners for real-time updates
+      document.getElementById('studentNameInput').addEventListener('input', updateCertificate);
+      document.getElementById('issueDateInput').addEventListener('change', updateCertificate);
+      
+      // Initialize edit mode as off
+      const editModeToggle = document.getElementById('editModeToggle');
+      if (editModeToggle) {
+        editModeToggle.checked = false;
+      }
+      
+      // Check if user has already seen the message in current session
+      const messageSeen = sessionStorage.getItem('deviceMessageSeen');
+      
+      if (!messageSeen) {
+        // Show device detection message for this session
+        setTimeout(() => {
+          detectDeviceAndScreen();
+        }, 500);
+      } else {
+        // Ensure message is hidden if user has seen it in this session
+        const messageElement = document.getElementById('deviceMessage');
+        messageElement.classList.add('hidden');
+        messageElement.style.display = 'none';
+      }
+      
+      // Monitor zoom level changes but don't show message again
+      window.addEventListener('resize', checkZoomLevel);
+      checkZoomLevel();
+    });
+
+    function downloadPNG() {
+      // Temporarily disable edit mode for clean download
+      const editModeToggle = document.getElementById('editModeToggle');
+      const wasEditMode = editModeToggle.checked;
+      
+      if (wasEditMode) {
+        editModeToggle.checked = false;
+        toggleEditMode();
+      }
+      
+      // Apply current template border styles before download
+      const certificate = document.querySelector('.certificate');
+      const currentBorder = certificate.style.border;
+      const currentBorderColor = certificate.style.borderColor;
+      
+      // Ensure border is properly applied
+      if (!currentBorder && !currentBorderColor) {
+        certificate.style.border = '20px solid #0d4c97';
+      }
+      
+      // Wait a moment for DOM to update, then download
+      setTimeout(() => {
+        html2canvas(certificate, { 
+          scale: 2, 
+          useCORS: true,
+          backgroundColor: '#ffffff',
+          onclone: function(clonedDoc) {
+            // Apply styles to cloned document
+            const clonedCertificate = clonedDoc.querySelector('.certificate');
+            if (clonedCertificate) {
+              // Copy all computed styles
+              const computedStyle = window.getComputedStyle(certificate);
+              clonedCertificate.style.border = computedStyle.border;
+              clonedCertificate.style.borderImage = computedStyle.borderImage;
+              clonedCertificate.style.borderColor = computedStyle.borderColor;
+              
+              // Apply border image styles
+              const beforeElement = clonedDoc.querySelector('.certificate::before');
+              if (beforeElement) {
+                const beforeStyle = window.getComputedStyle(certificate, '::before');
+                clonedCertificate.style.setProperty('--border-color', beforeStyle.borderColor);
+              }
+            }
+          }
+        }).then(canvas => {
+          const link = document.createElement('a');
+          const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+          link.download = `certificate-${timestamp}.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          
+          // Restore edit mode if it was on
+          if (wasEditMode) {
+            setTimeout(() => {
+              editModeToggle.checked = true;
+              toggleEditMode();
+            }, 100);
+          }
+        });
+      }, 100);
+    }
+
+    function selectTemplate(templateType) {
+      // Remove previous selection
+      document.querySelectorAll('.template-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      
+      // Add selection to clicked template
+      event.currentTarget.classList.add('selected');
+      
+      // Get certificate elements
+      const certificate = document.querySelector('.certificate');
+      const titleElement = document.querySelector('.title h1');
+      const subtitleElement = document.querySelector('.title h2');
+      const studentNameElement = document.querySelector('.student-name');
+      const contentElement = document.querySelector('.content');
+      const universityHeader = document.querySelector('.university-header');
+      
+      // Template styles - only colors and fonts change
+      const templates = {
+        appreciation: {
+          border: '#0d4c97',
+          innerBorder: '#0d4c97',
+          titleColor: '#0d4c97',
+          subtitleColor: '#0d4c97',
+          nameColor: '#0d4c97',
+          titleFont: "'Playfair Display', serif",
+          nameFont: "'Libre Baskerville', serif",
+          contentFont: "'Georgia', serif"
+        },
+        completion: {
+          border: '#1565c0',
+          innerBorder: '#1565c0',
+          titleColor: '#1565c0',
+          subtitleColor: '#1565c0',
+          nameColor: '#1565c0',
+          titleFont: "'Libre Baskerville', serif",
+          nameFont: "'Playfair Display', serif",
+          contentFont: "'Crimson Text', serif"
+        },
+        excellence: {
+          border: '#1976d2',
+          innerBorder: '#1976d2',
+          titleColor: '#1976d2',
+          subtitleColor: '#1976d2',
+          nameColor: '#1976d2',
+          titleFont: "'Crimson Text', serif",
+          nameFont: "'Libre Baskerville', serif",
+          contentFont: "'Playfair Display', serif"
+        },
+        participation: {
+          border: '#2196f3',
+          innerBorder: '#2196f3',
+          titleColor: '#2196f3',
+          subtitleColor: '#2196f3',
+          nameColor: '#2196f3',
+          titleFont: "'Georgia', serif",
+          nameFont: "'Crimson Text', serif",
+          contentFont: "'Libre Baskerville', serif"
+        },
+        achievement: {
+          border: '#1e88e5',
+          innerBorder: '#1e88e5',
+          titleColor: '#1e88e5',
+          subtitleColor: '#1e88e5',
+          nameColor: '#1e88e5',
+          titleFont: "'Playfair Display', serif",
+          nameFont: "'Georgia', serif",
+          contentFont: "'Crimson Text', serif"
+        },
+        merit: {
+          border: '#42a5f5',
+          innerBorder: '#42a5f5',
+          titleColor: '#42a5f5',
+          subtitleColor: '#42a5f5',
+          nameColor: '#42a5f5',
+          titleFont: "'Libre Baskerville', serif",
+          nameFont: "'Crimson Text', serif",
+          contentFont: "'Georgia', serif"
+        },
+        leadership: {
+          border: '#0d47a1',
+          innerBorder: '#0d47a1',
+          titleColor: '#0d47a1',
+          subtitleColor: '#0d47a1',
+          nameColor: '#0d47a1',
+          titleFont: "'Crimson Text', serif",
+          nameFont: "'Playfair Display', serif",
+          contentFont: "'Libre Baskerville', serif"
+        },
+        innovation: {
+          border: '#1565c0',
+          innerBorder: '#1565c0',
+          titleColor: '#1565c0',
+          subtitleColor: '#1565c0',
+          nameColor: '#1565c0',
+          titleFont: "'Georgia', serif",
+          nameFont: "'Libre Baskerville', serif",
+          contentFont: "'Playfair Display', serif"
+        },
+        recognition: {
+          border: '#1976d2',
+          innerBorder: '#1976d2',
+          titleColor: '#1976d2',
+          subtitleColor: '#1976d2',
+          nameColor: '#1976d2',
+          titleFont: "'Playfair Display', serif",
+          nameFont: "'Georgia', serif",
+          contentFont: "'Libre Baskerville', serif"
+        }
+      };
+      
+      const selectedTemplate = templates[templateType];
+      if (selectedTemplate) {
+        // Apply template styles
+        certificate.style.border = `18px solid ${selectedTemplate.border}`;
+        certificate.style.setProperty('--template-color', selectedTemplate.border);
+        
+        // Update inner border
+        const beforeElement = document.querySelector('.certificate::before');
+        if (beforeElement) {
+          document.styleSheets[0].insertRule(
+            `.certificate::before { border: 3px solid ${selectedTemplate.innerBorder} !important; }`,
+            document.styleSheets[0].cssRules.length
+          );
+        }
+        
+        // Update colors and fonts
+        titleElement.style.color = selectedTemplate.titleColor;
+        titleElement.style.fontFamily = selectedTemplate.titleFont;
+        subtitleElement.style.color = selectedTemplate.subtitleColor;
+        subtitleElement.style.fontFamily = selectedTemplate.titleFont;
+        studentNameElement.style.color = selectedTemplate.nameColor;
+        studentNameElement.style.fontFamily = selectedTemplate.nameFont;
+        contentElement.style.fontFamily = selectedTemplate.contentFont;
+        universityHeader.style.color = selectedTemplate.titleColor;
+        
+        // Update highlight color
+        const highlights = document.querySelectorAll('.highlight');
+        highlights.forEach(highlight => {
+          highlight.style.color = selectedTemplate.border;
+        });
+      }
+    }
+
+    function toggleEditMode() {
+      const editModeToggle = document.getElementById('editModeToggle');
+      const isEditMode = editModeToggle.checked;
+      
+      // Make certificate elements editable
+      const editableElements = [
+        '.title h1',
+        '.title h2', 
+        '.student-name',
+        '.content',
+        '.university-header',
+        '.certificate-id',
+        '.issue-date',
+        '.sign-title'
+      ];
+      
+      editableElements.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+          if (isEditMode) {
+            element.contentEditable = true;
+            element.classList.add('editable-content');
+            element.addEventListener('blur', saveContent);
+          } else {
+            element.contentEditable = false;
+            element.classList.remove('editable-content');
+            element.removeEventListener('blur', saveContent);
+          }
+        });
+      });
+      
+      // Update download button text
+      const downloadBtn = document.querySelector('button[onclick="downloadPNG()"]');
+      if (downloadBtn) {
+        downloadBtn.textContent = isEditMode ? 'Download Edited Certificate' : 'Download as PNG';
+      }
+    }
+
+    function saveContent(event) {
+      // Save content to localStorage for persistence
+      const element = event.target;
+      const elementId = element.className || element.tagName;
+      localStorage.setItem(`certificate_${elementId}`, element.innerHTML);
+    }
+
+    function loadSavedContent() {
+      // Load saved content from localStorage
+      const editableElements = document.querySelectorAll('.title h1, .title h2, .student-name, .content, .university-header, .certificate-id, .issue-date, .sign-title');
+      
+      editableElements.forEach(element => {
+        const elementId = element.className || element.tagName;
+        const savedContent = localStorage.getItem(`certificate_${elementId}`);
+        if (savedContent) {
+          element.innerHTML = savedContent;
+        }
+      });
+    }
+
+    function setName(name) {
+      document.getElementById("studentName").innerText = name;
+    }
+
+    // Example Auto Data
+    // setName("Areeba Fatima");
+  </script></body>
+</html>
